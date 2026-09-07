@@ -1,4 +1,4 @@
-# 健身APP用户行为数据分析 + AI Coach产品设计 📊🏋️
+﻿# 健身APP用户行为数据分析 + AI Coach产品设计 📊🏋️
 
 > Fitness App User Behavior Analytics & AI Coach Product Design
 >
@@ -18,12 +18,12 @@
 
 | 文件 | 说明 | 链接 |
 |------|------|------|
-| 🖥️ **交互式数据看板** | 8个核心指标+7个联动图表，支持国家筛选+深色模式 | [在线体验](https://wdnmdlgb.github.io/FitnessApp-User-Behavior-Analytics/dashboard/) |
-| 📓 **Jupyter Notebook** | 完整数据分析流程（42个单元格，数据读取→清洗→EDA→分群→建议） | [查看Notebook](https://github.com/wdnmdlgb/FitnessApp-User-Behavior-Analytics/blob/master/notebooks/FitnessApp_User_Behavior_Analysis.ipynb) |
-| 🎨 **AI Coach产品原型** | 6页可交互高保真原型（首页→目标→频率→器械→生成→计划） | [在线体验](https://wdnmdlgb.github.io/FitnessApp-User-Behavior-Analytics/product/ai_coach_prototype.html) |
-| 📋 **AI Coach产品策划方案** | 数据发现→痛点假设→竞品分析→产品方案→功能流程→监控指标 | [查看方案](https://github.com/wdnmdlgb/FitnessApp-User-Behavior-Analytics/blob/master/product/AI_Coach_产品策划方案.md) |
-| 数据分析报告 | 完整分析报告（含5大发现+5条优化建议） | [查看报告](https://github.com/wdnmdlgb/FitnessApp-User-Behavior-Analytics/blob/master/report/数据分析报告.md) |
-| SQL业务查询 | 15条真实业务场景SQL | [查看SQL](https://github.com/wdnmdlgb/FitnessApp-User-Behavior-Analytics/blob/master/sql/business_analysis.sql) |
+| 🖥️ **交互式数据看板** | 8个核心指标+7个联动图表，支持国家筛选+深色模式 | [在线体验](https://wangziyu618.github.io/FitnessApp-User-Behavior-Analytics/dashboard/) |
+| 📓 **Jupyter Notebook** | 完整数据分析流程（42个单元格，数据读取→清洗→EDA→分群→建议） | [查看Notebook](https://github.com/wangziyu618/FitnessApp-User-Behavior-Analytics/blob/master/notebooks/FitnessApp_User_Behavior_Analysis.ipynb) |
+| 🎨 **AI Coach产品原型** | 6页可交互高保真原型（首页→目标→频率→器械→生成→计划） | [在线体验](https://wangziyu618.github.io/FitnessApp-User-Behavior-Analytics/product/ai_coach_prototype.html) |
+| 📋 **AI Coach产品策划方案** | 数据发现→痛点假设→竞品分析→产品方案→功能流程→监控指标 | [查看方案](https://github.com/wangziyu618/FitnessApp-User-Behavior-Analytics/blob/master/product/AI_Coach_产品策划方案.md) |
+| 数据分析报告 | 完整分析报告（含5大发现+5条优化建议） | [查看报告](https://github.com/wangziyu618/FitnessApp-User-Behavior-Analytics/blob/master/report/数据分析报告.md) |
+| SQL业务查询 | 15条真实业务场景SQL | [查看SQL](https://github.com/wangziyu618/FitnessApp-User-Behavior-Analytics/blob/master/sql/business_analysis.sql) |
 
 > 💡 本项目已从"数据分析"升级为"**体育科技产品数据分析 + 产品设计**"，适合投递数据岗、产品岗、体育科技公司。
 
