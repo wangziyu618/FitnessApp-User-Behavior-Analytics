@@ -1,166 +1,68 @@
-﻿# 健身APP用户行为数据分析 + AI Coach产品设计 📊🏋️
+# Fitness App 用户行为分析：方法验证与实验方案
 
-> Fitness App User Behavior Analytics & AI Coach Product Design
->
-> Python + SQL + 数据可视化 + 产品策划 + 高保真原型
->
-> 个人数据分析+产品设计项目，求职作品集
+> 作品集案例｜合成数据｜SQL/Python 分析流程｜产品实验设计
 
----
+## 项目定位
 
-## 🎯 项目目标
+本仓库使用脚本生成的合成数据，字段结构参考公开的健身 App 场景。仓库中的用户、留存、付费率、渠道效果和功能使用差异都不属于任何公司的真实经营结果，也不能用来判断真实用户行为。
 
-基于AI健身APP（如Freeletics类产品）的用户行为数据，完整跑通**数据获取→清洗→SQL分析→可视化→产品问题发现→产品功能策划→高保真原型**的全流程，从数据分析师视角升级为**数据驱动的产品设计师**。
+项目展示两项能力：
 
----
+1. 如何搭建可复现的数据清洗、SQL 分析、看板和用户分群流程。
+2. 如何把观察结果转成需要真实数据验证的产品假设和实验设计。
 
-## 📖 快速预览
+## 业务问题
 
-| 文件 | 说明 | 链接 |
-|------|------|------|
-| 🖥️ **交互式数据看板** | 8个核心指标+7个联动图表，支持国家筛选+深色模式 | [在线体验](https://wangziyu618.github.io/FitnessApp-User-Behavior-Analytics/dashboard/) |
-| 📓 **Jupyter Notebook** | 完整数据分析流程（42个单元格，数据读取→清洗→EDA→分群→建议） | [查看Notebook](https://github.com/wangziyu618/FitnessApp-User-Behavior-Analytics/blob/master/notebooks/FitnessApp_User_Behavior_Analysis.ipynb) |
-| 🎨 **AI Coach产品原型** | 6页可交互高保真原型（首页→目标→频率→器械→生成→计划） | [在线体验](https://wangziyu618.github.io/FitnessApp-User-Behavior-Analytics/product/ai_coach_prototype.html) |
-| 📋 **AI Coach产品策划方案** | 数据发现→痛点假设→竞品分析→产品方案→功能流程→监控指标 | [查看方案](https://github.com/wangziyu618/FitnessApp-User-Behavior-Analytics/blob/master/product/AI_Coach_产品策划方案.md) |
-| 数据分析报告 | 完整分析报告（含5大发现+5条优化建议） | [查看报告](https://github.com/wangziyu618/FitnessApp-User-Behavior-Analytics/blob/master/report/数据分析报告.md) |
-| SQL业务查询 | 15条真实业务场景SQL | [查看SQL](https://github.com/wangziyu618/FitnessApp-User-Behavior-Analytics/blob/master/sql/business_analysis.sql) |
+假设一家订阅制健身 App 希望提升新用户激活与长期留存，分析需要回答：
 
-> 💡 本项目已从"数据分析"升级为"**体育科技产品数据分析 + 产品设计**"，适合投递数据岗、产品岗、体育科技公司。
+- 哪些首次体验行为与后续留存相关？
+- AI Coach 的使用是留存原因，还是高意愿用户的结果？
+- 免费用户在哪个步骤流失？
+- 哪个渠道带来有贡献利润的用户，而非只带来注册或模拟付费率？
 
----
+## 当前数据能与不能回答什么
 
-## 🛠️ 技术栈
+| 可以展示 | 不能证明 |
+|---|---|
+| 数据模型、清洗流程、SQL、可视化与分群方法 | 真实 DAU、留存率或付费率 |
+| 指标定义和分析路径 | AI Coach 导致完成率提升 |
+| 如何发现相关性并形成假设 | Influencer 渠道应获得更多预算 |
+| 如何设计实验与监控 | 某项功能一定提升 5%–10% 留存 |
 
-| 工具 | 用途 |
-|------|------|
-| **Python Pandas** | 数据清洗、缺失值处理、衍生字段计算、统计分析 |
-| **Jupyter Notebook** | 完整数据分析流程展示（42个单元格，含代码+可视化+结论） |
-| **SQL** | 15条业务查询，覆盖活跃/留存/付费/功能/分群分析 |
-| **ECharts** | 交互式数据看板（7个图表，深色模式，国家筛选联动） |
-| **HTML/CSS/JS** | AI Coach功能高保真原型（6页可交互，移动端尺寸） |
-| **Matplotlib** | 5张数据可视化图表 |
-| **产品策划** | 数据发现→痛点假设→竞品分析→产品方案→功能流程→监控指标 |
+仓库现有“3,000 用户”“D7 81.4%”“D30 57.6%”“AI Coach 使用者完成率更高”等数字均来自合成规则。它们是管道测试结果，不是业务成绩。
 
----
+## 建议的真实业务结论路径
 
-## 📁 仓库结构
+优先验证“新用户首次 7 天内完成个性化计划，是否提升 D28 留存”。先做观察性分析控制注册渠道、国家、训练经验和初始意愿，再通过随机实验验证因果关系。
 
-```
-FitnessApp-User-Behavior-Analytics/
-├── README.md                          # 项目说明
-├── .gitignore
-├── data/
-│   ├── raw_user_info.csv              # 原始用户信息表（3000条）
-│   ├── raw_user_daily_activity.csv    # 原始用户行为表（48754条）
-│   ├── cleaned_user_info.csv          # 清洗后用户信息
-│   ├── cleaned_user_daily_activity.csv # 清洗后行为数据
-│   ├── key_metrics.csv                # 核心指标汇总
-│   └── DATA_DICTIONARY.md             # 数据字典
-├── notebooks/
-│   └── FitnessApp_User_Behavior_Analysis.ipynb  # 📓 完整Jupyter Notebook（42单元格）
-├── sql/
-│   └── business_analysis.sql          # 15条SQL业务查询
-├── dashboard/
-│   ├── index.html                     # 🖥️ 交互式数据看板（ECharts，7图表+深色模式）
-│   ├── dashboard_data.json            # 看板聚合数据
-│   └── 01-05_*.png                   # 5张静态图表
-├── product/
-│   ├── AI_Coach_产品策划方案.md       # 📋 AI Coach完整产品策划文档
-│   └── ai_coach_prototype.html        # 🎨 AI Coach高保真交互原型（6页）
-├── report/
-│   └── 数据分析报告.md                 # 完整分析报告
-└── scripts/
-    ├── generate_dataset.py            # 数据集生成脚本
-    ├── data_cleaning_analysis.py      # 数据清洗与分析脚本
-    ├── generate_notebook.py           # Notebook生成脚本
-    └── generate_dashboard*.py         # 看板生成脚本
-```
+- **对照组**：现有新手流程。
+- **实验组**：更容易发现的 AI Coach 入口 + 一次引导式计划创建。
+- **主指标**：D28 留存或第 4 周有效训练人数。
+- **护栏指标**：退款、通知关闭、跳出、支持工单。
+- **诊断指标**：计划创建率、首次训练完成率、首周训练天数。
+- **分析单位**：新注册用户；按预先定义的实验窗口与归因规则统计。
 
----
+详细说明见 [真实数据验证与实验方案](product/真实数据验证与实验方案.md)。
 
-## 📊 核心指标
+## 项目结构
 
-| 指标 | 数值 |
-|------|------|
-| 总用户数 | 3,000 |
-| 行为记录数 | 48,754 |
-| 平均DAU | 813 |
-| 7日留存率 | 81.4% |
-| 30日留存率 | 57.6% |
-| 付费率 | ~12% |
-| 平均会话时长 | 27.5分钟 |
-| AI教练使用率 | 25.5% |
-| 训练计划访问率 | 34.9% |
+- scripts/generate_dataset.py：合成数据生成逻辑，可审查假设
+- scripts/data_cleaning_analysis.py：清洗与指标计算
+- sql/business_analysis.sql：业务查询示例
+- notebooks/：分析流程
+- dashboard/：**合成数据演示看板**
+- product/ai_coach_prototype.html：产品交互原型
+- product/AI_Coach_产品策划方案.md：基于假设的方案草案
+- [真实数据验证与实验方案](product/真实数据验证与实验方案.md)：数据接入、偏差控制和 A/B 测试
 
----
+## 需要接入的真实数据
 
-## 🔍 五大关键发现
+最低需要用户注册与渠道归因、事件日志、训练计划与完成记录、订阅和退款、实验分组，以及国家/设备等非敏感上下文。每个事件应有稳定的 user_id、UTC 时间、事件版本和来源。
 
-### 1. 付费用户活跃度显著高于免费用户
-付费用户平均会话时长32.4分钟（+28.6%），AI教练使用率45%（免费用户仅20%），付费意愿与功能深度使用强相关。
+## 使用方法
 
-### 2. 德国和英国是核心市场
-德/英/法三国贡献超50%活跃用户；荷兰用户数第四但付费率最高（15%），是高价值市场。
+运行 scripts/generate_dataset.py 和 scripts/data_cleaning_analysis.py。运行结果用于验证代码和看板是否工作。若接入真实数据，应先替换数据字典与合成数据入口，再运行质量检查、指标计算和实验分析。
 
-### 3. AI教练功能渗透率不足
-AI教练使用率仅25.5%，但使用者训练完成率提升20%，入口太深和引导不足是主要原因。
+## 数据伦理与限制
 
-### 4. Influencer渠道付费转化率最高
-KOL渠道付费转化率20%，是付费广告（8%）的2.5倍，应加大KOL合作投入。
-
-### 5. 约15%用户注册后仅活跃1天
-流失风险用户集中在Paid Ads渠道、首次会话时长短的人群，需建立召回机制。
-
----
-
-## 💡 五条产品优化建议
-
-1. **强化AI教练新手引导**：新用户强制体验+首页入口+个性化推送，目标使用率提升至40%
-2. **优化免费→付费转化路径**：AI教练3次免费体验+连续活跃7天推送限时优惠
-3. **加大Influencer渠道投入**：将Paid Ads预算30%转移至KOL分层合作
-4. **流失用户召回机制**：注册第2天推送+3天未活跃召回+7天未付费免费会员体验
-5. **周末差异化内容**：家庭/户外训练专题+线上挑战活动，提升周末DAU 10-15%
-
----
-
-## 📝 SQL查询覆盖的业务问题
-
-1. 整体核心指标概览（DAU/付费率/会话时长）
-2. 各国活跃用户排名及付费率
-3. 不同获取渠道的付费转化率
-4. 付费vs免费用户行为差异
-5. AI教练使用与训练完成率相关性
-6. 周内活跃度分布
-7. 注册后首周留存曲线
-8. 不同年龄段行为差异
-9. 高价值用户（Top 10%）识别
-10. 训练计划访问与付费转化关系
-11. 每日新增注册趋势
-12. 用户流失分群分析
-13. 会话时长与卡路里分群
-14. 各国用户训练强度对比
-15. 各渠道用户价值(LTV)估算
-
----
-
-## 🚀 如何复现
-
-```bash
-# 1. 生成数据集
-python scripts/generate_dataset.py
-
-# 2. 数据清洗与分析（生成清洗后数据+图表+核心指标）
-python scripts/data_cleaning_analysis.py
-
-# 3. 查看SQL查询（可在SQLite/MySQL/PostgreSQL中运行）
-# sql/business_analysis.sql
-```
-
----
-
-## ⚠️ 数据说明
-
-本项目数据集基于AI健身APP的真实业务逻辑生成，字段设计参考公开的健身APP用户行为研究和行业基准数据。**非企业内部私有数据**，仅用于数据分析练习和求职作品集展示。
-
----
-
+该数据不包含真实个人数据。所有相关性、细分市场差异和渠道表现都由生成规则影响；行业基准也不能替代公司自身基线。产品决策必须在真实数据、用户研究和受控实验上重新验证。
