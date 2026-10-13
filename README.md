@@ -2,6 +2,12 @@
 
 > 作品集案例｜合成数据｜SQL/Python 分析流程｜产品实验设计
 
+## Dashboard 预览
+
+[![FitnessApp-User-Behavior-Analytics Dashboard Preview](assets/dashboard-preview.svg)](https://wangziyu618.github.io/FitnessApp-User-Behavior-Analytics/dashboard/)
+
+> 点击预览图查看完整案例页面。
+
 ## 项目定位
 
 本仓库使用脚本生成的合成数据，字段结构参考公开的健身 App 场景。仓库中的用户、留存、付费率、渠道效果和功能使用差异都不属于任何公司的真实经营结果，也不能用来判断真实用户行为。
